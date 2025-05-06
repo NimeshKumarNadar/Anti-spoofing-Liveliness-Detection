@@ -43,7 +43,7 @@ const WebcamCapture = ({ addManualResult, addAutoResult }) => {
 
       detections.forEach(det => {
         const { x, y, width, height } = det.box;
-        ctx.strokeStyle = 'lime';
+        ctx.strokeStyle = 'blue';
         ctx.lineWidth = 2;
         ctx.strokeRect(x, y, width, height);
       });
@@ -167,16 +167,35 @@ const WebcamCapture = ({ addManualResult, addAutoResult }) => {
 
   return (
     
-    <div className="webcam-capture">
-    <div className="video-container">
-      <video ref={videoRef} autoPlay muted playsInline />
-      <canvas ref={canvasRef} className="overlay" />
-    </div>
-    
-      <button onClick={() => captureAndSend('manual')} disabled={loading}>
-        {loading ? 'Processing...' : 'Check Frame'}
-      </button>
-    </div>
+    <div className="bg-gradient-to-r from-blue-100 to-blue-300 p-6 rounded-lg shadow-xl">
+  {/* Video Container */}
+  <div className="relative w-full h-[480px] rounded-lg overflow-hidden">
+    <video
+      ref={videoRef}
+      autoPlay
+      muted
+      playsInline
+      className="absolute w-full h-full object-cover scale-x-[-1]"
+    />
+    <canvas
+      ref={canvasRef}
+      className="absolute top-0 left-0 w-full h-full scale-x-[-1]"
+    />
+  </div>
+
+  {/* Check Frame Button */}
+  <div className="w-full flex items-center justify-center mt-4">
+    <button
+      onClick={() => captureAndSend('manual')}
+      disabled={loading}
+      className="px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-md transition-all duration-200 hover:scale-105 disabled:opacity-50"
+    >
+      {loading ? 'Processing...' : 'Check Frame'}
+    </button>
+  </div>
+
+</div>
+
     
   );
 };
