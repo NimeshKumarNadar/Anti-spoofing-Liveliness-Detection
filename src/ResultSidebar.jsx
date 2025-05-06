@@ -2,7 +2,7 @@ import React from "react";
 
 const ResultSidebar = ({ results, position, title }) => (
   <div
-    className={`sidebar ${position} overflow-x-hidden break-words whitespace-pre-wrap rounded-lg border border-gray-300 shadow-sm`}
+    className={`sidebar ${position} overflow-x-hidden h-[500px] break-words whitespace-pre-wrap rounded-lg border border-gray-300 shadow-sm`}
   >
     {/* Sidebar Header */}
     <div className="sidebar-header bg-blue-300 px-4 py-2 rounded-t-lg">
