@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const ResultSidebar = ({ results, position, title }) => (
   <div
@@ -11,25 +11,29 @@ const ResultSidebar = ({ results, position, title }) => (
 
     {/* Results List */}
     <ul className="space-y-2 px-2 py-2">
-      {[...results].reverse().map(({ id, timestamp, status, data, msg }, index) => (
-        <li
-          key={id}
-          className={`
+      {[...results]
+        .reverse()
+        .map(({ id, timestamp, status, data, msg }, index) => (
+          <li
+            key={id}
+            className={`
             p-2 text-sm leading-snug rounded-md
-            ${index % 2 === 0
-              ? 'bg-gradient-to-r from-sky-100 to-sky-200'
-              : 'bg-gradient-to-l from-indigo-100 to-indigo-200'}
+            ${
+              index % 2 === 0
+                ? "bg-gradient-to-r from-sky-100 to-sky-200"
+                : "bg-gradient-to-l from-indigo-100 to-indigo-200"
+            }
           `}
-        >
-          <strong>{timestamp}</strong> – {status}
-          <pre className="break-words whitespace-pre-wrap">
-            {status === 'done' ? JSON.stringify(data, null, 2) : data || ''}
-          </pre>
-          <pre className="break-words whitespace-pre-wrap">
-            {status === 'done' ? JSON.stringify(msg, null, 2) : msg || ''}
-          </pre>
-        </li>
-      ))}
+          >
+            <strong>{timestamp}</strong> – {status}
+            <pre className="break-words whitespace-pre-wrap">
+              {status === "done" ? JSON.stringify(data, null, 2) : data || ""}
+            </pre>
+            <pre className="break-words whitespace-pre-wrap">
+              {status === "done" ? JSON.stringify(msg, null, 2) : msg || ""}
+            </pre>
+          </li>
+        ))}
     </ul>
   </div>
 );

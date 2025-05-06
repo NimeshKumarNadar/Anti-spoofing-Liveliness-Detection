@@ -13,14 +13,13 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   margin: 0;
   padding: 0px;
   width: 100%;
-  
 }
-
-
 
 a {
   font-weight: 500;
